@@ -8,6 +8,13 @@ users_db={
         "password": "123",
         "rol":"admin"
     },
+    "juan":{
+        "name": "pablo",
+        "age":24,
+        "user name":"juan",
+        "password": "12",
+        "rol":"user",
+    },
 }
 
 def verify_user_name():

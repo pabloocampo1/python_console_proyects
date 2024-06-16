@@ -1,25 +1,43 @@
 from users import create_count, users_db, change_password
-from products import create_product, edit_product, show_all, delete_product
-from orders import total_sales
+from products import create_product, edit_product, show_all, delete_product, show_all_count
+from orders import total_sales, shooping_card, invoise, pay_account
 
 def menu(user):
     if user["rol"] == "user":
-        print("""
-              
-              
-            """)
+        while True:
+            print("""
+                ______MENU______
+                1. show products
+                2. order product
+                3. show shoopingcard
+                4. buy invoise
+                5. log out    
+             """)
+            option_user=int(input("select your option: "))
+            if option_user == 1:
+                show_all_count()
+            elif option_user == 2:
+                shooping_card(user)
+            elif option_user == 3:
+                invoise()
+            elif option_user == 4:
+                pay_account()
+            elif option_user == 5:
+                log_in()
+                
     elif user["rol"] == "admin":
         while True:
             print("""
-              options:
+              MENU
               ___________
+              
               1. add new product
               2. edit product
               3. delete product
               4. all products
               5. show total sales
               6. change user name or password
-              7. exit
+              7. log out
             """)
             option_admin=int(input("select your option: "))
             
@@ -41,6 +59,8 @@ def menu(user):
                 total_sales()
             elif option_admin == 6:
                 change_password()
+            elif option_admin == 7:
+                log_in()
             else:
                 print("option invalid")
 
