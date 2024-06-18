@@ -10,7 +10,7 @@ Una función para registrar tratamientos y su progreso.
 Una función para listar las citas de un paciente.
 Una función para listar todos los pacientes. """
 
-from pacientes import agregar_pacientes, eliminar_paciente, editar_paciente
+from pacientes import agregar_pacientes, eliminar_paciente, editar_paciente, ver_pacientes
 
 def menu():
     print("""
@@ -27,7 +27,7 @@ def menu():
     elif opcion == 1:
         menu_pacientes()
     elif opcion == 2:
-        print
+        print # hacer estas funcionalidades
     elif opcion == 3:
         print
     elif opcion == 4:
@@ -37,14 +37,15 @@ def menu():
 
 
 def menu_pacientes():
-    print("""
+    while True:
+        print("""
         menu - pacientes
         1. agregar paciente
         2. eliminar paciente
         3. editar datos de un paciente
-        4. salir al menu principal
+        4. ver todos los pacientes
+        5. salir al menu principal
         """)
-    while True:
         opcion_paciente=int(input("digite la opcion que decea: "))
         if opcion_paciente == 1:
             agregar_pacientes()
@@ -53,6 +54,8 @@ def menu_pacientes():
         elif opcion_paciente == 3:
             editar_paciente()
         elif opcion_paciente == 4:
+            ver_pacientes() 
+        elif opcion_paciente == 5:
             return menu()  
         else:
             print("dato no valido")
