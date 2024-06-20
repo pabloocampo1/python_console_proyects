@@ -11,14 +11,15 @@ Una función para listar las citas de un paciente.
 Una función para listar todos los pacientes. """
 
 from pacientes import agregar_pacientes, eliminar_paciente, editar_paciente, ver_pacientes
-
+from citas import agendar_cita, listar_citas, eliminar_citas
 def menu():
     print("""
         menu
         1. gestion de pacientes 
         2. gestion de citas
         3. gestion de tratamiento
-        4. salir
+        4. gestion de doctores
+        5. salir
         """)
     opcion=int(input("digite la opcion que decea realizar"))
     if opcion == " " or opcion > 4 and opcion < 1:
@@ -27,11 +28,11 @@ def menu():
     elif opcion == 1:
         menu_pacientes()
     elif opcion == 2:
-        print # hacer estas funcionalidades
+        menu_citas()
     elif opcion == 3:
         print
     elif opcion == 4:
-        print
+        listar_citas()
     elif opcion == 5:
         print
 
@@ -59,7 +60,31 @@ def menu_pacientes():
             return menu()  
         else:
             print("dato no valido")
-            
+
+def menu_citas():
+    while True:
+        print("""
+            menu - citas
+            1. agendar cita
+            2. eliminar cita
+            3. listar todas las citas
+            4. salir al menu
+        """)
+        opcion_cita=int(input("digite la opcion que deceas: "))
+        if opcion_cita == " ":
+            print("debes agregar una opcion")
+        elif opcion_cita == 1:
+            agendar_cita() 
+        elif opcion_cita == 2:
+            eliminar_citas()
+        elif opcion_cita == 3:
+            listar_citas() 
+        elif opcion_cita == 4:
+            print 
+        else:
+            print("opcion no valida")
 
 if __name__ == "__main__":
     menu()
+    
+    
